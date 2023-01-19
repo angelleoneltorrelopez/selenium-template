@@ -74,7 +74,7 @@
                     <version>3.0.0-M7</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <file>src\test\resources\chrome.xml</file>
+                            <file>src\test\resources\e2e.xml</file>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

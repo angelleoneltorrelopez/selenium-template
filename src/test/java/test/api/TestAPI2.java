@@ -41,6 +41,6 @@ public class TestAPI2 {
 
     @Test
     public void testDelete(){
-        RequestMethods.deleteRequest("https://fakestoreapi.com/products/1",  200);
+        RequestMethods.deleteRequest("https://reqres.in/api/users/2",  204);
     }
 }

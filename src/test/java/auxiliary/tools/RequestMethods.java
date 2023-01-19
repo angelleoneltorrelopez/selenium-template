@@ -9,11 +9,6 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-/**
- * In this class are the Request methods with the most used parameters.
- * @author Angel Torre
- * @version 01/12/2022
- */
 public class RequestMethods {
 
     public static void changeURL(String newBase){

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name = "web">
+
+    <test name = "API testing">
+        <packages>
+            <package name="test.web" />
+        </packages>
+    </test>
+</suite>

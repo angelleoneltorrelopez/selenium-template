@@ -23,7 +23,7 @@ public class Login extends TestBase {
     }
 
     @Test(description = "Fail login")
-    public void testFailLogin() {
+    public void testLoginError() {
         startPom();
         driver.get("https://www.saucedemo.com/");
         login.login("standard_usersdf", "secret_sauce");
