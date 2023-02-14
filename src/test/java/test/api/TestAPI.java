@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class TestAPI2 {
+public class TestAPI {
 
     @BeforeClass
     public void setUp(){
