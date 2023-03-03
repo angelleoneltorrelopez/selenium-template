@@ -19,7 +19,7 @@ public class Login extends TestBase {
         startPom();
         driver.get("https://www.saucedemo.com/");
         login.login("standard_user", "secret_sauce");
-        Assert.assertEquals(product.getTitle(), "PRODUCTS");
+        Assert.assertEquals(product.getTitle(), "Products");
     }
 
     @Test(description = "Fail login")
