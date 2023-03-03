@@ -1,4 +1,10 @@
-
+<p align="center">
+  <a href="https://www.selenium.dev/documentation/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" width="150" height="150"/>
+</a>
+<a href="https://www.ingenieriazeros.com/">
+<img src="https://1.bp.blogspot.com/-Q_GalsLLP0A/YYoUh73-MuI/AAAAAAAAMNc/OB4AIcWjB-UWJDKgH3c-kd0Syqt92lI-ACNcBGAsYHQ/s320/IMG_1169.PNG" 
+width="150" height="150"></a>
+</p>
 
 # Description
 This project is an automation test designed to demonstrate the use of the Selenium tool to perform automated tests on 
