@@ -41,7 +41,7 @@ To install, follow the steps below:
 
 1. Clone the repository from GitHub:
     ```bash
-    git clone git@github.com:angelleoneltorrelopez/seleniumPractices.git
+    git clone git@github.com:angelleoneltorrelopez/selenium-practice.git
     ```
 2. Install the project dependencies using the package manager:
     ```bash
