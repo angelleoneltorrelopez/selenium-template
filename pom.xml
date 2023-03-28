@@ -14,7 +14,7 @@
         <java.version>11</java.version>
 
         <testng.version>7.7.1</testng.version>
-        <selenium.version>4.8.1</selenium.version>
+        <selenium.version>4.8.3</selenium.version>
     </properties>
 
     <dependencies>

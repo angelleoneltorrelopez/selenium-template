@@ -1,13 +1,13 @@
 package pom.web;
 
-import org.openqa.selenium.WebDriver;
+import auxiliary.config.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class Login {
-    WebDriver driver;
+public class LoginPage extends TestBase {
+
     AjaxElementLocatorFactory ajaxElementLocatorFactory;
 
     @FindBy(id="user-name")
@@ -20,10 +20,13 @@ public class Login {
     @FindBy(xpath = "//h3[@data-test='error']")
     public  WebElement errorMessage;
 
-    public Login(WebDriver driver){
-        this.driver = driver;
+    public LoginPage(){
         ajaxElementLocatorFactory = new AjaxElementLocatorFactory(driver,8);
         PageFactory.initElements(ajaxElementLocatorFactory,this);
+    }
+
+    public void navigateToSauceDemoPage(){
+        navigateTo("https://www.saucedemo.com/");
     }
 
     public void login(String user, String password){

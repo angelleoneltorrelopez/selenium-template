@@ -1,21 +1,18 @@
 package pom.web;
 
-import org.openqa.selenium.WebDriver;
+import auxiliary.config.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class Product {
-
-    WebDriver driver;
+public class ProductPage extends TestBase {
     AjaxElementLocatorFactory ajaxElementLocatorFactory;
 
     @FindBy(xpath = "//span[@class='title']")
     public WebElement title;
 
-    public Product(WebDriver driver){
-        this.driver = driver;
+    public ProductPage(){
         ajaxElementLocatorFactory = new AjaxElementLocatorFactory(driver,8);
         PageFactory.initElements(ajaxElementLocatorFactory,this);
     }

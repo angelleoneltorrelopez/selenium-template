@@ -1,32 +1,26 @@
 package test.web;
 
-import auxiliary.config.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pom.web.Product;
+import pom.web.LoginPage;
+import pom.web.ProductPage;
 
-public class Login extends TestBase {
+public class Login {
 
-    pom.web.Login login;
-    Product product;
-    public void startPom(){
-        login = new pom.web.Login(driver);
-        product = new Product(driver);
-    }
+    LoginPage loginPage = new LoginPage();
+    ProductPage productPage = new ProductPage();
 
     @Test(description = "Verify login")
     public void testCheckLogin() {
-        startPom();
-        driver.get("https://www.saucedemo.com/");
-        login.login("standard_user", "secret_sauce");
-        Assert.assertEquals(product.getTitle(), "Products");
+        loginPage.navigateToSauceDemoPage();
+        loginPage.login("standard_user", "secret_sauce");
+        Assert.assertEquals(productPage.getTitle(), "Products");
     }
 
     @Test(description = "Fail login")
     public void testLoginError() {
-        startPom();
-        driver.get("https://www.saucedemo.com/");
-        login.login("standard_usersdf", "secret_sauce");
-        Assert.assertEquals(login.getError(), "Epic sadface: Username and password do not match any user in this service");
+        loginPage.navigateToSauceDemoPage();
+        loginPage.login("standard_usersdf", "secret_sauce");
+        Assert.assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service");
     }
 }
