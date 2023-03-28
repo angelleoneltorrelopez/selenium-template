@@ -17,7 +17,6 @@ public class TestBase {
     @Parameters({"browser"})
     @BeforeMethod
     public void init(@Optional("chrome") String browser){
-        System.out.println(System.getProperty("os.name"));
 
         switch (browser){
             case "chrome":
