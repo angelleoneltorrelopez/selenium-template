@@ -18,7 +18,7 @@ with a test web application.
 ## Dependencies used
 | Name           | Version |
 |----------------|---------|
-| [Selenium]     | 4.8.1   |
+| [Selenium]     | 4.8.3   |
 | [Testng]       | 7.7.1   |
 | [Rest Assured] | 5.3.0   |
 
@@ -58,10 +58,6 @@ mvn clean verify
 ```
 
 ## Run test suite selecting browser
-### Chrome
-```bash
-mvn clean verify -Dbrowser=chrome
-```
 
 ### Safari
 ```bash
