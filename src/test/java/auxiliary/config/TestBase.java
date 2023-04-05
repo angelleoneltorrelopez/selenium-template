@@ -16,11 +16,11 @@ public class TestBase {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void init(@Optional("chrome") String browser){
+    public void init(String browser){
 
         switch (browser){
-            case "chrome":
-                driver = DriverCapabilities.chromeDriver();
+            case "firefox":
+                driver = DriverCapabilities.firefoxDriver();
                 break;
             case "safari":
                 driver = DriverCapabilities.safariDriver();
@@ -29,7 +29,7 @@ public class TestBase {
                 driver = DriverCapabilities.edgeDriver();
                 break;
             default:
-                driver = DriverCapabilities.firefoxDriver();
+                driver = DriverCapabilities.chromeDriver();
                 break;
         }
     }
