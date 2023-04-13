@@ -16,7 +16,7 @@ public class TestBase {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void init(String browser){
+    public void init(@Optional("chrome") String browser){
 
         switch (browser){
             case "firefox":
