@@ -16,9 +16,7 @@ pipeline {
         stage('Test') {
             steps {
                 bat '''
-                C:
-                cd %RepositorioSelenium%
-                mvn clean test
+                mvn clean install
                 '''
             }
         }
