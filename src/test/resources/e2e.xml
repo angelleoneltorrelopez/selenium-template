@@ -2,7 +2,7 @@
 <suite name = "web">
 
     <parameter name="browser" value="chrome"></parameter>
-    <test name = "e2e testing">
+    <test name = "e2e testing" parallel="methods" thread-count="2">
         <packages>
             <package name="test.web" />
         </packages>
