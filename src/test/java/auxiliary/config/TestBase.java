@@ -7,11 +7,15 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class TestBase {
-    protected WebDriver driver;
+   // protected WebDriver driver;
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @AfterMethod
     public void close(){
-        driver.quit();
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
+        }
     }
 
     @Parameters({"browser"})
@@ -20,16 +24,20 @@ public class TestBase {
 
         switch (browser){
             case "firefox":
-                driver = DriverCapabilities.firefoxDriver();
+                driver.set(DriverCapabilities.firefoxDriver());
+                driver.get();
                 break;
             case "safari":
-                driver = DriverCapabilities.safariDriver();
+                driver.set(DriverCapabilities.safariDriver());
+                driver.get();
                 break;
             case "edge":
-                driver = DriverCapabilities.edgeDriver();
+                driver.set(DriverCapabilities.edgeDriver());
+                driver.get();
                 break;
             default:
-                driver = DriverCapabilities.chromeDriver();
+                driver.set(DriverCapabilities.chromeDriver());
+                driver.get();
                 break;
         }
     }

@@ -19,52 +19,52 @@ public class Login extends TestBase {
     pom.web.Login login;
     Product product;
     public void startPom(){
-        login = new pom.web.Login(driver);
-        product = new Product(driver);
+        login = new pom.web.Login(driver.get());
+        product = new Product(driver.get());
     }
 
     @Test(description = "Verify iframe")
     public void testIframe(){
-        driver.get("https://demoqa.com/frames");
-        String mainTap = driver.getWindowHandle();
-        WebElement iframe = driver.findElement(By.id("frame1"));
+        driver.get().get("https://demoqa.com/frames");
+        String mainTap = driver.get().getWindowHandle();
+        WebElement iframe = driver.get().findElement(By.id("frame1"));
 
-        driver.switchTo().frame(iframe);
-        String text = driver.findElement(By.id("sampleHeading")).getText();
+        driver.get().switchTo().frame(iframe);
+        String text = driver.get().findElement(By.id("sampleHeading")).getText();
 
         System.out.println(text);
-        System.out.println(driver.getTitle());
-        driver.switchTo().window(mainTap);
-        Assert.assertTrue(driver.findElement(By.id("frame2")).isDisplayed());
+        System.out.println(driver.get().getTitle());
+        driver.get().switchTo().window(mainTap);
+        Assert.assertTrue(driver.get().findElement(By.id("frame2")).isDisplayed());
         //
     }
 
     @Test(description = "Verify multi tabs")
     public void testTab(){
-        driver.get("https://demoqa.com/links");
-        String mainTab = driver.getWindowHandle();
+        driver.get().get("https://demoqa.com/links");
+        String mainTab = driver.get().getWindowHandle();
 
-        ((JavascriptExecutor) driver).executeScript("window.open()");
-        ((JavascriptExecutor) driver).executeScript("window.open()");
-        Set<String> handles = driver.getWindowHandles();
+        ((JavascriptExecutor) driver.get()).executeScript("window.open()");
+        ((JavascriptExecutor) driver.get()).executeScript("window.open()");
+        Set<String> handles = driver.get().getWindowHandles();
 
         for (String current:
              handles) {
             System.out.println(current);
             if (!current.equalsIgnoreCase(mainTab)){
-                driver.switchTo().window(current);
-                driver.get("https://www.ingenieriazeros.com/");
+                driver.get().switchTo().window(current);
+                driver.get().get("https://www.ingenieriazeros.com/");
             }
         }
         System.out.println("-------------");
     }
 
     @Test(description = "Verify scroll")
-    public void testC() throws IOException {
+    public void testScroll() throws IOException {
 
-        driver.get("https://www.ingenieriazeros.com/");
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,750)");
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        driver.get().get("https://www.ingenieriazeros.com/");
+        ((JavascriptExecutor) driver.get()).executeScript("window.scrollBy(0,750)");
+        File file = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file, new File("C:\\Users\\angel\\OneDrive\\Escritorio\\selenium-template/screen.png"));
 
         try {
@@ -77,8 +77,8 @@ public class Login extends TestBase {
 
     @Test(description = "Verify broken links")
     public void testCheckLinks() {
-        driver.get("https://demoqa.com/broken");
-        List<WebElement> links = driver.findElements(By.tagName("a"));
+        driver.get().get("https://demoqa.com/broken");
+        List<WebElement> links = driver.get().findElements(By.tagName("a"));
 
         HttpURLConnection httpURLConnection = null;
 
@@ -100,8 +100,8 @@ public class Login extends TestBase {
     @Test(description = "Verify login")
     public void testCheckLogin() {
         startPom();
-        driver.get("https://www.saucedemo.com/");
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,750)");
+        driver.get().get("https://www.saucedemo.com/");
+        ((JavascriptExecutor) driver.get()).executeScript("window.scrollBy(0,750)");
         login.login("standard_user", "secret_sauce");
         Assert.assertEquals(product.getTitle(), "Products");
     }
@@ -109,7 +109,7 @@ public class Login extends TestBase {
     @Test(description = "Fail login")
     public void testLoginError() {
         startPom();
-        driver.get("https://www.saucedemo.com/");
+        driver.get().get("https://www.saucedemo.com/");
         login.login("standard_usersdf", "secret_sauce");
         Assert.assertEquals(login.getError(), "Epic sadface: Username and password do not match any user in this service");
     }
