@@ -1,8 +1,8 @@
 package test.web;
 
 import auxiliary.config.TestBase;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pom.web.Product;
@@ -59,16 +59,29 @@ public class Login extends TestBase {
         System.out.println("-------------");
     }
 
+    @Test(description = "Verify screenshot")
+    public void testScreenshot() throws IOException {
+
+        driver.get().get("https://www.ingenieriazeros.com/");
+        ((JavascriptExecutor) driver.get()).executeScript("window.scrollBy(0,750)");
+        File screenshot = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(screenshot, new File("C:\\Users\\angel\\OneDrive\\Escritorio\\selenium-template/screen.png"));
+
+        try {
+            Thread.sleep(2000);
+        }
+        catch (Exception e){
+
+        };
+    }
+
     @Test(description = "Verify scroll")
     public void testScroll() throws IOException {
 
         driver.get().get("https://www.ingenieriazeros.com/");
         ((JavascriptExecutor) driver.get()).executeScript("window.scrollBy(0,750)");
-        File file = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file, new File("C:\\Users\\angel\\OneDrive\\Escritorio\\selenium-template/screen.png"));
-
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         }
         catch (Exception e){
 
