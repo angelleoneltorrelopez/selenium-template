@@ -65,7 +65,7 @@ public class Login extends TestBase {
         driver.get().get("https://www.ingenieriazeros.com/");
         ((JavascriptExecutor) driver.get()).executeScript("window.scrollBy(0,750)");
         File screenshot = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
-        FileHandler.copy(screenshot, new File("C:\\Users\\angel\\OneDrive\\Escritorio\\selenium-template/screen.png"));
+        FileHandler.copy(screenshot, new File("./screen.png"));
 
         try {
             Thread.sleep(2000);
