@@ -18,6 +18,7 @@ pipeline {
                 bat '''
                 mvn clean install
                 '''
+                archiveArtifacts allowEmptyArchive: true, artifacts: '*.png', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
             }
         }
         stage('Deploy') {
